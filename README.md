@@ -17,6 +17,7 @@ join  customer  on  store.store_id = customer.store_id
 group by  staff_id 
 having  count(customer.customer_id) > 300; 
 ```
+![](img/1.png)
 
 ### Задание 2
 
@@ -27,6 +28,7 @@ select  count(length)
 from film
 where  length > (select AVG(length) from film);
 ```
+![](img/2.png)
 
 ### Задание 3
 
@@ -41,6 +43,7 @@ GROUP BY DATE_FORMAT(payment_date, '%M %Y')
 ORDER BY SUM(amount) DESC
 limit 1;
 ```
+![](img/3.png)
 
 
 ### Задание 4*
@@ -61,6 +64,8 @@ WHERE p.amount > 0
 GROUP BY seller
 ORDER BY sales DESC;
 ```
+![](img/4.png)
+
 
 ### Задание 5*
 
