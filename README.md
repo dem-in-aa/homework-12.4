@@ -47,6 +47,21 @@ limit 1;
 
 Посчитайте количество продаж, выполненных каждым продавцом. Добавьте вычисляемую колонку «Премия». Если количество продаж превышает 8000, то значение в колонке будет «Да», иначе должно быть значение «Нет».
 
+```sql
+SELECT CONCAT(s.first_name, ' ', s.last_name) AS seller,
+ COUNT(p.amount) AS sales,
+CASE
+	WHEN COUNT(p.amount) > 8000 THEN 'YES'
+	WHEN COUNT(p.amount) < 8000 THEN 'NO'
+END AS bonus,
+SUM(p.amount) AS revenue
+FROM payment p
+JOIN staff s ON s.staff_id = p.staff_id
+WHERE p.amount > 0
+GROUP BY seller
+ORDER BY sales DESC;
+```
+
 ### Задание 5*
 
 Найдите фильмы, которые ни разу не брали в аренду.
