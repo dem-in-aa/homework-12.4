@@ -14,7 +14,7 @@ join  address a on  a.address_id   = s.address_id
 join  city c    on  a.city_id      = c.city_id  
 join  store     on  store.store_id = s.store_id
 join  customer  on  store.store_id = customer.store_id
-group  by  staff_id 
+group by  staff_id 
 having  count(customer.customer_id) > 300; 
 ```
 
