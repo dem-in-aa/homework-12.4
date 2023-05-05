@@ -7,15 +7,15 @@
 - город нахождения магазина;
 - количество пользователей, закреплённых в этом магазине.
 
-```
-SELECT  CONCAT(s.last_name, ' ', s.first_name) AS staff_name, c.city, COUNT(customer.customer_id)
-FROM staff s
-INNER JOIN address a ON  a.address_id = s.address_id 
-INNER JOIN city c  ON  a.city_id  = c.city_id  
-INNER JOIN store ON store.store_id = s.store_id
-INNER JOIN customer  ON store.store_id = customer.store_id
-GROUP BY staff_id 
-HAVING  COUNT(customer.customer_id) > 300; 
+```sql
+select  concat(s.last_name, ' ', s.first_name) AS staff_name, c.city, COUNT(customer.customer_id)
+from staff s
+join address a on  a.address_id = s.address_id 
+join  city c  on  a.city_id  = c.city_id  
+join  store on store.store_id = s.store_id
+join  customer  on store.store_id = customer.store_id
+group  by  staff_id 
+having  count(customer.customer_id) > 300; 
 ```
 
 ### Задание 2
